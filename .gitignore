@@ -1,0 +1,6 @@
+.vscode
+venv
+__pycache__
+upload
+db.sqlite3
+celerybeat-schedule

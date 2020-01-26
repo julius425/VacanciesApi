@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{ vacancy.title }}</h1>
+</div>
+<hr>
+<div class="container mt-5">
+    <p><strong>Статус: {{ vacancy.state }}</strong></p>
+    
+    <p><span>Владелец: {{ vacancy.owner}}</span></p>
+    
+
+
+    <span>Описание:</span>
+    <p>{{ vacancy.description }}</p>
+</div>
+<hr>
+<div class="container">
+    Доступные тесты:
+    {% for test in tests %}
+    {% if test %}
+    <p><a href="{{ test.get_file_url }}">{{test.ab_test.name}}</a></p>
+    {% else %}
+    <p>Нет доступных тестов.</p>
+    {% endif %}
+    {% endfor %}
+</div>    
+<hr>
+
+{% if user.id == vacancy.owner.id %}
+
+<div class="container">
+    <h4>Загрузить тест</h4>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class="btn btn-primary btn-sm" value="Загрузить тест" type="submit"/>
+    </form>
+</div>
+
+{% endif %}
+
+
+
+
+{% endblock %}

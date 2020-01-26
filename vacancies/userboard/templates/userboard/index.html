@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <select class="form-control" id="user-dropdown">
+        </select>
+      <button type="button" class="btn-primary mt-3" id="userreq">Получить по пользователю </button> 
+    </div>
+    <div class="col">
+      <select class="form-control" id="state-dropdown">
+        </select>
+      <button class="btn-primary mt-3" id="statereq">Получить по статусу </button> 
+    </div>
+  </div>
+  <!-- <hr> -->
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn-primary" id="apireq_null">Сбросить фильтр</button> 
+    </div>
+  </div>
+  <!-- <hr> -->
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn-primary" id="apireq">Получить архивные</button> 
+    </div>
+  </div>
+</div>
+<hr>
+
+
+<div class="filter container mt-5" id="">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Название</th>
+        <th scope="col">Статус</th>
+        <th scope="col">Пользователь</th>
+        <!-- <th scope="col">Занять вакансию</th>
+        <th scope="col">Освободить вакансию</th>
+        <th scope="col">Посмотреть вакансию</th> -->
+      </tr>
+      <td>
+   </form>
+      </td>
+    </thead>
+    <tbody class="filter-table"></tbody>
+</div>
+
+
+
+{% block js %}
+<script type="text/javascript">
+  var current_user = "{{ request.user.pk }}";
+  
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'index/main.js' %}"></script> 
+<script type="text/javascript" src="{% static 'index/load_non_archived.js' %}"></script> 
+<script type="text/javascript" src="{% static 'index/load_archived.js' %}"></script> 
+<script type="text/javascript" src="{% static 'index/load_by_user.js' %}"></script> 
+<script type="text/javascript" src="{% static 'index/load_by_state.js' %}"></script> 
+{% endblock %}
+
+{% endblock %}

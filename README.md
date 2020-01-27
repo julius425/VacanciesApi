@@ -14,12 +14,11 @@
     1.  Переходим в папку:
         * `cd VacanciesApi`
     2.  Включаем virtualenv и устанавливаем зависимости:
-        * `veirtualenv -p python3.6`
-        * `. vevnv/bin/activate`
+        * `veirtualenv -p python3.6 venv`
+        * `. venv/bin/activate`
         * `pip install -r requirements.txt`
     3.  Переходим в проект, делаем миграции:
         * `cd vacancies`
-        * `./manage.py makemigrations`
         * `./manage.py migrate`
 4.  Устанавливаем redis:
     * `apt install redis-server`

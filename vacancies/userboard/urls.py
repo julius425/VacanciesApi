@@ -9,6 +9,7 @@ from .views.userboard import (
     Profile,
     AddVacToProfile,
     VacancyDetail,
+    AbilityDetail,
     AbilityTestDownloadView,
 )
 

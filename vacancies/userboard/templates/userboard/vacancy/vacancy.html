@@ -21,6 +21,7 @@
     Доступные тесты:
     {% for test in tests %}
     {% if test %}
+    <p><a href="{{ test.get_absolute_url }}">Посмотреть тест/a></p>
     <p><a href="{{ test.get_file_url }}">{{test.ab_test.name}}</a></p>
     {% else %}
     <p>Нет доступных тестов.</p>

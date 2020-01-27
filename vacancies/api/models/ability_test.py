@@ -43,6 +43,14 @@ class AbilityTest(models.Model):
 
         return super().save(*args, **kwargs) 
 
+    
+    def get_absolute_url(self):
+        return reverse("model_detail", kwargs={'slug': self.slug,
+                                               'vac_id': self.id,
+                                               'candidate_id': self.candidate.id,    
+                                                })
+    
+
     def get_file_url(self):
         name = self.ab_test.name 
         return reverse('userboard:download', kwargs={'file_name':self.ab_test.name})
